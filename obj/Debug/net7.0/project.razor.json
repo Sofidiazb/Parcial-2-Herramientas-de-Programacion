@@ -18655,8 +18655,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\Views\\Users\\Edit.cshtml",
+      "TargetPath": "Views\\Users\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\Views\\Roles\\Create.cshtml",
+      "TargetPath": "Views\\Roles\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\Views\\Users\\Index.cshtml",
+      "TargetPath": "Views\\Users\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18727,6 +18742,11 @@
     {
       "FilePath": "c:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\Views\\Estudiante\\Delete.cshtml",
       "TargetPath": "Views\\Estudiante\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\Views\\Roles\\Index.cshtml",
+      "TargetPath": "Views\\Roles\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
