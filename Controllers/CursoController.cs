@@ -44,12 +44,12 @@ namespace Parcial1.Controllers
                 return NotFound();
             }
 
-            var viewModel = new CursoViewModel();
-            viewModel.Nombre = curso.Nombre;
-            viewModel.Duracion = curso.Duracion;
-            viewModel.Precio = curso.Precio;
+            var model = new Curso();
+            model.Nombre = curso.Nombre;
+            model.Duracion = curso.Duracion;
+            model.Precio = curso.Precio;
 
-            return View(viewModel);
+            return View(model);
         }
 
         // GET: Curso/Create

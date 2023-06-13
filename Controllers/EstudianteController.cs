@@ -21,7 +21,7 @@ namespace Parcial1.Controllers
         public EstudianteController(IEstudianteServices estudianteService, ICursoServices cursoService)
         {
             _estudianteService = estudianteService;
-            //_cursoService = cursoService;
+            _cursoServices = cursoService;
         }
 
         // GET: Estudiante
@@ -50,9 +50,10 @@ namespace Parcial1.Controllers
         }
 
         // GET: Estudiante/Create
+        [Authorize(Roles = "Estudiante")]
         public IActionResult Create()
         {
-            //var cursosList  = _cursoServices.GetAll();
+            var cursosList  = _cursoServices.GetAll();
             ViewData["Cursos"] = new SelectList(new List<Curso>(), "Id", "Name");
             return View();
         }
@@ -66,13 +67,13 @@ namespace Parcial1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var cursos = _cursoServices.GetAll().Where(x => estudianteView.CursoIds.Contains(x.Id)).ToList();
+                //var cursos = _cursoServices.GetAll().Where(x => estudianteView.CursoIds.Contains(x.Id)).ToList();
                 
                 var estudiante = new Estudiante{
                     NombreAlumno = estudianteView.NombreAlumno,
                     ApellidoAlumno = estudianteView.ApellidoAlumno,
-                    Dni = estudianteView.Dni,
-                    Cursos = cursos
+                    Dni = estudianteView.Dni
+                    //Cursos = cursos
                 };
                 
                 _estudianteService.Create(estudiante);

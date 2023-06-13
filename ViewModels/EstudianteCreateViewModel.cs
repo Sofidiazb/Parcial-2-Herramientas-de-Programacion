@@ -9,7 +9,7 @@ public class EstudianteCreateViewModel
     public string ApellidoAlumno { get; set; }
     public int Dni { get; set; }
     public string? CursoElegido { get; set; }
-    public virtual List<Curso>? Cursos { get; set; }
+    public virtual List<CursoViewModel>? Cursos { get; set; }
     public List<int>? CursoIds { get; set; } 
     public string? NameFilter { get; set; }
 }
