@@ -24,7 +24,7 @@ public class UsersController : Controller
         _userManager = userManager;
         _roleManager = roleManager;
     }
-
+    [Authorize(Roles = "Profesor, Administrador")]
     public IActionResult Index()
     {
         //listar todos los usuarios

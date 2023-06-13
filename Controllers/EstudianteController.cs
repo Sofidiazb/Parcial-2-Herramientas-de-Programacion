@@ -9,6 +9,7 @@ using Parcial1.Data;
 using Parcial1.Models;
 using Parcial1.ViewModels;
 using Parcial1.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Parcial1.Controllers
 {
@@ -31,6 +32,7 @@ namespace Parcial1.Controllers
         }
 
         // GET: Estudiante/Details/5
+        [Authorize(Roles = "Administrador, Profesor")]
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -81,6 +83,7 @@ namespace Parcial1.Controllers
         }
 
         // GET: Estudiante/Edit/5
+        [Authorize(Roles = "Administrador, Estudiante")]
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -119,6 +122,7 @@ namespace Parcial1.Controllers
         }
 
         // GET: Estudiante/Delete/5
+        [Authorize(Roles = "Administrador, Profesor")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

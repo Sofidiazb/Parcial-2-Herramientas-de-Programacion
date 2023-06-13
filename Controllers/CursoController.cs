@@ -9,6 +9,7 @@ using Parcial1.Data;
 using Parcial1.Models;
 using Parcial1.ViewModels;
 using Parcial1.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Parcial1.Controllers
 {
@@ -52,6 +53,7 @@ namespace Parcial1.Controllers
         }
 
         // GET: Curso/Create
+        [Authorize(Roles = "Profesor")]
         public IActionResult Create()
         {
             return View();
@@ -62,6 +64,7 @@ namespace Parcial1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Profesor")]
         public IActionResult Create([Bind("Id,Nombre,Categoria,Duracion,Precio")] Curso curso)
         {
         
@@ -74,6 +77,7 @@ namespace Parcial1.Controllers
         }
 
         // GET: Curso/Edit/5
+        [Authorize(Roles = "Profesor, Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,6 +98,7 @@ namespace Parcial1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Profesor, Administrador")]
         public IActionResult Edit(int id, [Bind("Id,Nombre,Categoria,Duracion,Precio")] Curso curso)
         {
             if (id != curso.Id)
@@ -124,6 +129,7 @@ namespace Parcial1.Controllers
         }
 
         // GET: Curso/Delete/5
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -143,6 +149,7 @@ namespace Parcial1.Controllers
         // POST: Curso/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public IActionResult DeleteConfirmed(int id)
         {
             _cursoServices.Delete(id);

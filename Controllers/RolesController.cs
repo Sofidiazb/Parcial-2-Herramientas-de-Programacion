@@ -20,7 +20,7 @@ public class RolesController : Controller
         _logger = logger;
         _roleManager = roleManager;
     }
-
+    [Authorize(Roles = "Administrador")]
     public IActionResult Index()
     {
         //listar todos los roles
@@ -46,4 +46,5 @@ public class RolesController : Controller
 
         return RedirectToAction("Index");
     }
+
 }
