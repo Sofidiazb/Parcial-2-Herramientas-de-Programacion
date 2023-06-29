@@ -10,6 +10,7 @@ public class EstudianteCreateViewModel
     public int Dni { get; set; }
     public string? CursoElegido { get; set; }
     public virtual List<CursoViewModel>? Cursos { get; set; }
+    public List<Estudiante> Estudiantes { get; set; } = new List<Estudiante>();
     public List<int>? CursoIds { get; set; } 
     public string? NameFilter { get; set; }
 }

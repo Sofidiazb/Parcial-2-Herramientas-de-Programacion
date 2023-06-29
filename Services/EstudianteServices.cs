@@ -28,6 +28,20 @@ public class EstudianteService : IEstudianteServices
     {
         return _context.Estudiante.Include(r => r.Cursos).ToList();
     }
+    
+    public List<Estudiante> GetAll(string filter)
+    {
+        var query = GetQuery();
+
+        if (!string.IsNullOrEmpty(filter))
+        {
+            query = query.Where(x => x.NombreAlumno.ToLower().Contains(filter.ToLower())
+                || x.ApellidoAlumno.ToLower().Contains(filter.ToLower()) 
+                || x.Dni.ToString().Contains(filter));
+        }
+
+        return query.ToList();
+    }
 
     public Estudiante? GetById(int id)
     {
@@ -42,5 +56,10 @@ public class EstudianteService : IEstudianteServices
     {
         _context.Update(obj);
         _context.SaveChanges();
+    }
+
+    private IQueryable<Estudiante> GetQuery()
+    {
+        return from estudiante in _context.Estudiante select estudiante;
     }
 }

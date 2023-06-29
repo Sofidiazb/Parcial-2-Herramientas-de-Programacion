@@ -24,11 +24,13 @@ namespace Parcial1.Controllers
             _cursoServices = cursoService;
         }
 
+      
         // GET: Estudiante
-        public IActionResult Index()
+        public IActionResult Index(string nameFilter)
         {
-            var list = _estudianteService.GetAll();
-            return View(list);
+            var model = new EstudianteCreateViewModel();
+            model.Estudiantes = _estudianteService.GetAll(nameFilter);
+            return View(model);
         }
 
         // GET: Estudiante/Details/5
@@ -54,7 +56,7 @@ namespace Parcial1.Controllers
         public IActionResult Create()
         {
             var cursosList  = _cursoServices.GetAll();
-            ViewData["Cursos"] = new SelectList(new List<Curso>(), "Id", "Name");
+            ViewData["Cursos"] = new SelectList(cursosList, "Id", "Nombre");
             return View();
         }
 
@@ -67,13 +69,12 @@ namespace Parcial1.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var cursos = _cursoServices.GetAll().Where(x => estudianteView.CursoIds.Contains(x.Id)).ToList();
+                var cursos = _cursoServices.GetAll().Where(x => estudianteView.CursoIds.Contains(x.Id)).ToList();
                 
                 var estudiante = new Estudiante{
                     NombreAlumno = estudianteView.NombreAlumno,
                     ApellidoAlumno = estudianteView.ApellidoAlumno,
                     Dni = estudianteView.Dni
-                    //Cursos = cursos
                 };
                 
                 _estudianteService.Create(estudiante);

@@ -1,4 +1,7 @@
-@model IEnumerable<Parcial1.Models.Estudiante>
+@using Parcial1.ViewModels;
+
+@model EstudianteCreateViewModel;
+
 
 @{
     ViewData["Title"] = "Index";
@@ -9,26 +12,31 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="row">
+    <form method="get" asp-action="Index" asp-controller="Estudiante">
+        <div>
+            <input class="form-control" asp-for="NameFilter">
+        </div>
+        <button class="btn" type="submit">Buscar</button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreAlumno)
+                @Html.DisplayNameFor(model => model.Estudiantes[0].NombreAlumno)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApellidoAlumno)
+                @Html.DisplayNameFor(model => model.Estudiantes[0].ApellidoAlumno)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dni)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cursos)
+                @Html.DisplayNameFor(model => model.Estudiantes[0].Dni)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Estudiantes) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NombreAlumno)
@@ -38,9 +46,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Dni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cursos)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
