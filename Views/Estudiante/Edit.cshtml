@@ -1,4 +1,4 @@
-@model Parcial1.Models.Estudiante
+@model Parcial1.Models.Estudiante;
 
 @{
     ViewData["Title"] = "Edit";
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cursos" class="control-label"></label>
-                <input asp-for="Cursos" class="form-control" />
+                <input asp-for="Cursos[0].Nombre" class="form-control" />
                 <span asp-validation-for="Cursos" class="text-danger"></span>
             </div>
             <div class="form-group">

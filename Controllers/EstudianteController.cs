@@ -74,7 +74,8 @@ namespace Parcial1.Controllers
                 var estudiante = new Estudiante{
                     NombreAlumno = estudianteView.NombreAlumno,
                     ApellidoAlumno = estudianteView.ApellidoAlumno,
-                    Dni = estudianteView.Dni
+                    Dni = estudianteView.Dni,
+                    Cursos = cursos
                 };
                 
                 _estudianteService.Create(estudiante);
