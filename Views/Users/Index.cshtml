@@ -7,8 +7,8 @@
 @foreach (var item in Model)
 {
     <li>
-        @item.UserName | <a asp-action="Edit" asp-route-id="@item.Id">Asignar Role</a>   
+        @item.UserName | <button type="button" class="btn btn-secondary"><a asp-action="Edit" asp-route-id="@item.Id">Asignar Role</a></button>   
     </li>
-    
+    <br>
 }
 </ul>
