@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XBD6bX1hCjtpv9oQUrhmjqOmxtbrxWUWajlTlkNRm7M=",
+  "Hash": "tbgmB41McLjvRuXzxO85kW0fvuJFSq92h7FwK28XQYE=",
   "Source": "Parcial1",
   "BasePath": "_content/Parcial1",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Parcial1.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\wwwroot\\css\\Curso.jpg",
+      "SourceId": "Parcial1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\wwwroot\\",
+      "BasePath": "_content/Parcial1",
+      "RelativePath": "css/Curso.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Curso.jpg"
     },
     {
       "Identity": "C:\\Users\\sofia\\OneDrive\\Documentos\\Parcial1\\wwwroot\\css\\site.css",
