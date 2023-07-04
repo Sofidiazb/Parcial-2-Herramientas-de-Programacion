@@ -74,7 +74,7 @@ namespace Parcial1.Controllers
 
                 foreach (var curso in cursos)
                 {
-                    if (curso.Capacidad == 0)
+                    if (curso.Capacidad <= 0)
                     {
                         ModelState.AddModelError("", $"El curso '{curso.Nombre}' está lleno. No se puede inscribir más estudiantes.");
                         return View(estudianteView);
