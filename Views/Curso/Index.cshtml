@@ -34,6 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Cursos[0].Precio)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cursos[0].Capacidad)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -48,6 +51,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacidad)
             </td>
             <td>
                 <button type="button" class="btn btn-secondary"><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></button> 

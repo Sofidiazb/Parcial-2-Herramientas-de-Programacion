@@ -48,6 +48,7 @@ namespace Parcial1.Controllers
             model.Nombre = curso.Nombre;
             model.Duracion = curso.Duracion;
             model.Precio = curso.Precio;
+            model.Capacidad = curso.Capacidad;
 
             return View(model);
         }
@@ -65,7 +66,7 @@ namespace Parcial1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Profesor")]
-        public IActionResult Create([Bind("Id,Nombre,Categoria,Duracion,Precio")] Curso curso)
+        public IActionResult Create([Bind("Id,Nombre,Categoria,Duracion,Precio,Capacidad")] Curso curso)
         {
         
             if (ModelState.IsValid)
@@ -99,7 +100,7 @@ namespace Parcial1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Profesor, Administrador")]
-        public IActionResult Edit(int id, [Bind("Id,Nombre,Categoria,Duracion,Precio")] Curso curso)
+        public IActionResult Edit(int id, [Bind("Id,Nombre,Categoria,Duracion,Precio,Capacidad")] Curso curso)
         {
             if (id != curso.Id)
             {

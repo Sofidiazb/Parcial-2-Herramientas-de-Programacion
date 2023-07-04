@@ -5,6 +5,7 @@ public class Curso
     public string Nombre { get; set; }
     public string Duracion { get; set; }
     public double Precio { get; set; }
+    public int Capacidad { get; set; }
     public virtual List<Estudiante>? Estudiantes { get; set;}
 
 }

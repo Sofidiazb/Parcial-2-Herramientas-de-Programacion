@@ -23,7 +23,6 @@ namespace Parcial1.Controllers
             _estudianteService = estudianteService;
             _cursoServices = cursoService;
         }
-
       
         // GET: Estudiante
         public IActionResult Index(string nameFilter)
@@ -67,21 +66,28 @@ namespace Parcial1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Id,NombreAlumno,ApellidoAlumno,Dni,CursoIds")] EstudianteCreateViewModel estudianteView)
         {
-            if (ModelState.IsValid)
+            
+
+            if (ModelState.IsValid) 
             {
                 var cursos = _cursoServices.GetAll().Where(x => estudianteView.CursoIds.Contains(x.Id)).ToList();
                 
-                var estudiante = new Estudiante{
+                
+                    var estudiante = new Estudiante
+                    {
                     NombreAlumno = estudianteView.NombreAlumno,
                     ApellidoAlumno = estudianteView.ApellidoAlumno,
                     Dni = estudianteView.Dni,
                     Cursos = cursos
-                };
+                    };
+                
                 
                 _estudianteService.Create(estudiante);
-    
+                
+                
                 return RedirectToAction(nameof(Index));
             }
+
             return View(estudianteView);
         }
 

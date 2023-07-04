@@ -40,7 +40,8 @@ public class CursoServices : ICursoServices
         {
             query = query.Where(x => x.Nombre.ToLower().Contains(filter.ToLower())
                 || x.Duracion.ToLower().Contains(filter.ToLower()) 
-                || x.Precio.ToString().Contains(filter));
+                || x.Precio.ToString().Contains(filter) 
+                || x.Capacidad.ToString().Contains(filter));
         }
 
         return query.ToList();

@@ -13,4 +13,5 @@ public class EstudianteCreateViewModel
     public List<Estudiante> Estudiantes { get; set; } = new List<Estudiante>();
     public List<int>? CursoIds { get; set; } 
     public string? NameFilter { get; set; }
+    
 }
