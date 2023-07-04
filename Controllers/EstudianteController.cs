@@ -64,32 +64,43 @@ namespace Parcial1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        
         public IActionResult Create([Bind("Id,NombreAlumno,ApellidoAlumno,Dni,CursoIds")] EstudianteCreateViewModel estudianteView)
         {
-            
-
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 var cursos = _cursoServices.GetAll().Where(x => estudianteView.CursoIds.Contains(x.Id)).ToList();
-                
-                
-                    var estudiante = new Estudiante
+
+                foreach (var curso in cursos)
+                {
+                    if (curso.Capacidad == 0)
                     {
+                        ModelState.AddModelError("", $"El curso '{curso.Nombre}' está lleno. No se puede inscribir más estudiantes.");
+                        return View(estudianteView);
+                    }
+
+                    curso.Capacidad--;
+
+                     _cursoServices.Update(curso);
+                }
+
+                var estudiante = new Estudiante
+                {
                     NombreAlumno = estudianteView.NombreAlumno,
                     ApellidoAlumno = estudianteView.ApellidoAlumno,
                     Dni = estudianteView.Dni,
                     Cursos = cursos
-                    };
-                
-                
+                };
+
                 _estudianteService.Create(estudiante);
-                
-                
+
                 return RedirectToAction(nameof(Index));
             }
 
             return View(estudianteView);
         }
+
 
         // GET: Estudiante/Edit/5
         [Authorize(Roles = "Administrador, Estudiante")]
