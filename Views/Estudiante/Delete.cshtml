@@ -29,17 +29,23 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Dni)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cursos[0].Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cursos[0].Nombre)
-        </dd>
+        @if (Model.Cursos.Any())
+        {
+            <dt class="col-sm-2">Cursos</dt>
+            <dd class="col-sm-10">
+                <ul>
+                    @foreach (var curso in Model.Cursos)
+                    {
+                        <li>@curso.Nombre</li>
+                    }
+                </ul>
+            </dd>
+        }
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
         <button type="button" class="btn btn-dark"><a asp-action="Index">Volver a la lista</a></button>
     </form>
 </div>
